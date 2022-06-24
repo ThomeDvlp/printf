@@ -6,7 +6,7 @@
 /*   By: rthome-d <rthome-d@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 03:28:48 by rthome-d          #+#    #+#             */
-/*   Updated: 2022/06/24 10:42:59 by rthome-d         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:31:56 by rthome-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
 int	ft_putstr(char *str)
@@ -46,7 +47,7 @@ int	ft_putunbr(unsigned int nbr)
 	nbrlen = 0;
 	else if (nbr > 9)
 		ft_putnbr(nbr / 10);
-		nbrlen
+		nbrlen;
 	if (nbr >= 0)
 		ft_putchar((nbr % 10) + '0');
 	return (nbrlen);
@@ -63,7 +64,7 @@ int	ft_puthex(unsigned int nbr, char *hexref)
 	mlen = 0;
 	while (nbr)
 	{
-		mlen++
+		mlen++;
 		nbr /= 16;
 	}
 	output = (char *)malloc(sizeof(char) * (mlen + 1));
