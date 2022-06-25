@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rthome-d <rthome-d@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 03:28:48 by rthome-d          #+#    #+#             */
-/*   Updated: 2022/06/24 15:31:56 by rthome-d         ###   ########.fr       */
+/*   Updated: 2022/06/25 00:32:40 by rthome-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,17 @@ int	ft_putstr(char *str)
 	int	index;
 
 	if (!str)
-		return (write (1,"(null)", 6);
+		return (write (1, "(null)", 6));
 	index = 0;
-	while (str[index]),
-		index++
-	write (1 , str, index)
+	while (str[index])
+		index++;
+	write (1, str, index);
 	return (index);
 }
 
 int	ft_putnbr(int nbr)
 {
 	char	*strnb;
-	int		nblen;
 
 	strnb = ft_itoa(nbr);
 	return (ft_putstr(strnb));
@@ -45,10 +44,12 @@ int	ft_putunbr(unsigned int nbr)
 	int	nbrlen;
 
 	nbrlen = 0;
-	else if (nbr > 9)
+	if (nbr > 9)
+	{
 		ft_putnbr(nbr / 10);
-		nbrlen;
-	if (nbr >= 0)
+		nbrlen++;
+	}
+	else if (nbr)
 		ft_putchar((nbr % 10) + '0');
 	return (nbrlen);
 }
@@ -67,16 +68,16 @@ int	ft_puthex(unsigned int nbr, char *hexref)
 		mlen++;
 		nbr /= 16;
 	}
-	output = (char *)malloc(sizeof(char) * (mlen + 1));
-	if (!conversion)
-		return (NULL);
+	convertion = (char *)malloc(sizeof(char) * (mlen + 1));
+	if (!convertion)
+		return (0);
 	while (mlen)
 	{
-		conversion[mlen -1] = hexref[nbr % 16r];
+		convertion[mlen -1] = hexref[nbr % 16];
 		nbr /= 16;
 		mlen--;
 	}
-	output = ft_putstr(conversion);
-	free (conversion);
+	output = ft_putstr(convertion);
+	free (convertion);
 	return (output);
 }

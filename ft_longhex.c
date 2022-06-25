@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lgtohex.c                                       :+:      :+:    :+:   */
+/*   ft_longhex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rthome-d <rthome-d@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:45:52 by rthome-d          #+#    #+#             */
-/*   Updated: 2022/06/24 15:38:43 by rthome-d         ###   ########.fr       */
+/*   Updated: 2022/06/25 00:43:07 by rthome-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-static int ft_mlen(unsigned long nrb)
+static int ft_mlen(unsigned long nbr)
 {
 	int			mlen;
 
 	mlen = 0;
 	while (nbr > 15)
 	{
-		nbr /= 16
+		nbr /= 16;
 		mlen++;
 	}
 	return (mlen + 1);
 }
 
-int	ft_lgtohex(unsigned long nbr)
+int	ft_longhex(unsigned long nbr)
 {
-	char 			*str
+	char 			*str;
 	int				output;
 	int				index;
 	
@@ -42,12 +42,11 @@ int	ft_lgtohex(unsigned long nbr)
 		while (index > 0)
 		{
 			str[index] = (nbr % 10) + '0';
-			nbr / 16;
+			nbr /= 16;
 			index--;
 		}
 		ft_putstr(str);
-		output = 
+		output = ft_strlen(str);
 	}
-
 	return (output);
 }	

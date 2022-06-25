@@ -1,8 +1,8 @@
 NAME		= libftprintf.a
 
-LIBRARY		= ./libft/
+LIBRARY		= ../libft/
 
-SRC			= ft_printf.c
+SRC			= ft_printf.c ft_utils.c ft_lgtohex.c
 
 OBJ			= $(SRC:.c=.o)
 
@@ -21,11 +21,11 @@ all:		$(NAME)
 
 clean:
 				rm -f $(OBJ)
-				cd ./libft && $(MAKE) clean
+				cd ../libft && $(MAKE) clean
 
 fclean:		clean
 				rm -f $(NAME)
-				cd ./libft && $(MAKE) fclean
+				cd ../libft && $(MAKE) fclean
 
 re:			fclean all
 
